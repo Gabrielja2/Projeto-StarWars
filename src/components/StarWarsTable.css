@@ -1,0 +1,10 @@
+table {
+  border: 2px solid blue;
+}
+
+th, td {
+  border: 2px black solid;
+  max-width: 200px;
+  min-width: 100px;
+  word-wrap: break-word;
+}
