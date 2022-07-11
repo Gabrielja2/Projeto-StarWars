@@ -4,7 +4,7 @@
   flex-direction: column;
   font-size: 2rem;
   gap: 2px;
-  padding: 25px;
+  padding: 20px 20px 0;
 }
 
 #label-input1 > #byName {

@@ -7,17 +7,19 @@ function StarWarsHeader() {
 
   return (
     <header>
-      <label id="label-input1" htmlFor="byName">
-        Projeto Star Wars - Trybe
-        <input
-          data-testid="name-filter"
-          id="byName"
-          type="text"
-          onChange={ (e) => setFilterName({ name: e.target.value }) }
-          placeholder="Search for names.."
-          value={ filterName.name }
-        />
-      </label>
+      <div className="header">
+        <label id="label-input1" htmlFor="byName">
+          Projeto Star Wars - Trybe
+          <input
+            data-testid="name-filter"
+            id="byName"
+            type="text"
+            onChange={ (e) => setFilterName({ name: e.target.value }) }
+            placeholder="Search for names.."
+            value={ filterName.name }
+          />
+        </label>
+      </div>
     </header>
 
   );

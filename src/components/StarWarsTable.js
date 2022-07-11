@@ -3,14 +3,14 @@ import StarWarsContext from '../context/StarWarsContext';
 import './StarWarsTable.css';
 
 function StarWarsTable() {
-  const { loading, data, filterName } = useContext(StarWarsContext);
+  const { loading, data, filterName, filterByNumber } = useContext(StarWarsContext);
 
   const searchFilter = () => data
     .filter((planet) => planet.name.toLowerCase()
       .includes(filterName.name.toLowerCase()));
 
   return loading ? <p>Carregando...</p> : data.length && (
-    <table>
+    <table className="table">
       <thead>
         <tr className="table-header">
           {data.length && Object.keys(data[0])
