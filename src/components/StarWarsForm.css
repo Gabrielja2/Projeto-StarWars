@@ -1,21 +1,15 @@
-#label-input1 {
-  align-items: center;
+#label-input2 {
+  align-items: start;
   display: flex;
   flex-direction: column;
-  font-size: 2rem;
-  gap: 2px;
-  padding: 25px;
+  font-size: 10px;
+  line-height: 200%;
+  padding: 10px;
 }
 
-#label-input1 > #byName {
+#columnFilter {
   background: rgb(31, 31, 31);
-  border: 0.5px rgb(92, 91, 91) solid;
-  border-radius: 5px;
+  border: none;
+  border-bottom: 1px rgb(92, 91, 91) solid;
   color: white;
-  height: 50px;
-  width: 200px;
-}
-
-#label-input1 > #byName:hover  {
-  border: 1px rgb(92, 91, 91) solid;
 }

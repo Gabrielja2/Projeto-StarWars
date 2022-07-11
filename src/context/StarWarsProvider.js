@@ -10,6 +10,7 @@ function StarWarsProvider(props) {
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState([]);
   const [filterName, setFilterName] = useState({ name: '' });
+  const [filterByNumber, setFilterByNumber] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -33,6 +34,8 @@ function StarWarsProvider(props) {
     setData,
     filterName,
     setFilterName,
+    filterByNumber,
+    setFilterByNumber,
   };
 
   return (

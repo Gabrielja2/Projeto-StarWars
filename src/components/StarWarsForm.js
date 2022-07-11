@@ -1,25 +1,48 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import StarWarsContext from '../context/StarWarsContext';
 
 import './StarWarsForm.css';
 
 function StarWarsForm() {
-  const { filterName, setFilterName } = useContext(StarWarsContext);
+  const columnKeys = [
+    'population',
+    'orbital_period',
+    'diameter',
+    'rotation_period',
+    'surface_water',
+  ];
+  const comparisonKeysValue = ['maior que', 'menor que', 'igual a'];
+
+  const [column, setColumn] = useState(columnKeys[0]);
+  const [comparison, setComparison] = useState(comparisonKeysValue[1]);
+  const [value, setValue] = useState(0);
+
+  const { filterByNumber, setFilterByNumber } = useContext(StarWarsContext);
 
   return (
-    <div>
-      <label id="label-input1" htmlFor="byName">
-        Projeto Star Wars - Trybe
-        <input
-          data-testid="name-filter"
-          id="byName"
-          type="text"
-          onChange={ (e) => setFilterName({ name: e.target.value }) }
-          placeholder="Search for names.."
-          value={ filterName.name }
-        />
+    <form>
+      <label id="label-input2" htmlFor="columnFilter">
+        Coluna
+        <select
+          id="columnFilter"
+          data-testid="column-filter"
+          name="column"
+          value={ column }
+          onChange={ (e) => setColumn(e.target.value) }
+        >
+          {columnKeys.map((item) => (
+            <option
+              id="options"
+              key={ item }
+              value={ item }
+            >
+              {item}
+
+            </option>
+          ))}
+        </select>
       </label>
-    </div>
+    </form>
 
   );
 }

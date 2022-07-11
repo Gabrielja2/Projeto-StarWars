@@ -11,6 +11,7 @@ thead {
 }
 
 .table-item, .header-item {
+  border: none;
   border-bottom: 0.5px rgb(92, 91, 91) solid;
   padding-inline: 10px;
 }
