@@ -7,10 +7,13 @@ const ENDPOINT = 'https://swapi-trybe.herokuapp.com/api/planets/';
 
 function StarWarsProvider(props) {
   const { children } = props;
+  const [loading, setLoading] = useState(false);
   const [data, setData] = useState([]);
+  const [filterName, setFilterName] = useState({ name: '' });
 
   useEffect(() => {
     const fetchData = async () => {
+      setLoading(true);
       const response = await fetch(ENDPOINT);
       const planets = await response.json();
       const planetsResults = planets.results;
@@ -19,13 +22,17 @@ function StarWarsProvider(props) {
         return key;
       });
       setData(planetsFiltered);
+      setLoading(false);
     };
     fetchData();
   }, []);
 
   const contextType = {
+    loading,
     data,
     setData,
+    filterName,
+    setFilterName,
   };
 
   return (

@@ -1,0 +1,21 @@
+#label-input1 {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  font-size: 2rem;
+  gap: 2px;
+  padding: 25px;
+}
+
+#label-input1 > #byName {
+  background: rgb(31, 31, 31);
+  border: 0.5px rgb(92, 91, 91) solid;
+  border-radius: 5px;
+  color: white;
+  height: 50px;
+  width: 200px;
+}
+
+#label-input1 > #byName:hover  {
+  border: 1px rgb(92, 91, 91) solid;
+}

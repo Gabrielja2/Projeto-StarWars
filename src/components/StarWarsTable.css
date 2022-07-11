@@ -1,10 +1,16 @@
 table {
-  border: 2px solid blue;
+  border-collapse: collapse;
+  text-align: justify;
 }
 
-th, td {
-  border: 2px black solid;
-  max-width: 200px;
-  min-width: 100px;
-  word-wrap: break-word;
+thead {
+  background-color: #131212;
+  border-bottom: 0.5px rgb(39, 39, 39) solid;
+  line-height: 200%;
+  text-align: justify;
+}
+
+.table-item, .header-item {
+  border-bottom: 0.5px rgb(92, 91, 91) solid;
+  padding-inline: 10px;
 }
