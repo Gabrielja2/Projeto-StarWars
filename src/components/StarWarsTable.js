@@ -41,7 +41,7 @@ function StarWarsTable() {
   };
 
   return loading ? <p>Carregando...</p> : data.length && (
-    <table className="table">
+    <table id="tabela" className="table">
       <thead>
         <tr className="table-header">
           {data.length && Object.keys(data[0])

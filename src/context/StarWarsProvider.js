@@ -10,7 +10,6 @@ function StarWarsProvider(props) {
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState([]);
   const [filterName, setFilterName] = useState({ name: '' });
-  // filterByNumber = { column, comparison, value }[]
   const [filterByNumericValues, setFilterByNumericValues] = useState([]);
 
   useEffect(() => {

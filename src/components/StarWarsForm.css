@@ -24,7 +24,7 @@
   width: 50px;
 }
 
-#btn-filter {
+#btn-filter, #btn-removeFilter {
   background: rgb(31, 31, 31);
   border: 0.5px yellow solid;
   border-radius: 5px;

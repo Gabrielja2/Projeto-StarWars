@@ -1,21 +1,17 @@
-// import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
-// const ENDPOINT = 'https://swapi-trybe.herokuapp.com/api/planets/';
+const ENDPOINT = 'https://swapi-trybe.herokuapp.com/api/planets/';
 
-// const useFetch = async () => {
-//   const [data, setData] = useState([]);
+function useFetch() {
+  const [data, setData] = useState([]);
 
-//   useEffect(() => {
-//     const fetchData = async () => {
-//       const response = await fetch(ENDPOINT);
-//       const planetList = await response.json();
+  useEffect(() => {
+    fetch(ENDPOINT)
+      .then((response) => response.json())
+      .then(({ results }) => setData(results));
+  }, []);
 
-//       setData(planetList.results);
-//     };
-//     fetchData();
-//   }, []);
+  return { data };
+}
 
-//   return { data };
-// };
-
-// export default useFetch;
+export default useFetch;
