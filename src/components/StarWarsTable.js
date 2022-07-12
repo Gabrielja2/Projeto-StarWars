@@ -3,11 +3,41 @@ import StarWarsContext from '../context/StarWarsContext';
 import './StarWarsTable.css';
 
 function StarWarsTable() {
-  const { loading, data, filterName, filterByNumber } = useContext(StarWarsContext);
+  const {
+    loading, data, filterName, filterByNumericValues,
+  } = useContext(StarWarsContext);
 
-  const searchFilter = () => data
+  const applyTextFilter = (arrayParam) => arrayParam
     .filter((planet) => planet.name.toLowerCase()
       .includes(filterName.name.toLowerCase()));
+
+  const filterByNumberWithComparison = (filter, arrayParam) => {
+    console.log({ filterByNumericValues });
+    const { comparison, column, value } = filter;
+
+    return arrayParam.filter((planet) => {
+      // 'maior que', 'menor que', 'igual a'
+      if (comparison === 'maior que') {
+        return Number(planet[column]) > Number(value);
+      }
+      if (comparison === 'menor que') {
+        return Number(planet[column]) < Number(value);
+      }
+      // if (comparison === 'igual a') {
+      return Number(planet[column]) === Number(value);
+      // }
+    });
+  };
+
+  const applyFilterByNumber = (arrayParam) => {
+    let planetsFiltered = arrayParam;
+
+    filterByNumericValues.forEach((filter) => {
+      planetsFiltered = filterByNumberWithComparison(filter, planetsFiltered);
+    });
+
+    return planetsFiltered;
+  };
 
   return loading ? <p>Carregando...</p> : data.length && (
     <table className="table">
@@ -25,7 +55,7 @@ function StarWarsTable() {
       </thead>
       <tbody>
         {
-          searchFilter().map((planet) => (
+          applyFilterByNumber(applyTextFilter(data)).map((planet) => (
             <tr className="table-row" key={ planet.name }>
               {Object.keys(data[0])
                 .map((value, i) => (

@@ -1,5 +1,5 @@
 .label-input2 {
-  align-items: start;
+  align-items: flex-start;
   display: flex;
   flex-direction: column;
   font-size: 10px;
@@ -39,5 +39,5 @@
   align-items: center;
   display: flex;
   height: 130px;
-  justify-content: start;
+  justify-content: flex-start;
 }
