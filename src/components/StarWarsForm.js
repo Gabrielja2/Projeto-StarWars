@@ -13,6 +13,7 @@ function StarWarsForm() {
   const [column, setColumn] = useState(columnKeys[0]);
   const [comparison, setComparison] = useState(comparisonKeysValue[0]);
   const [value, setValue] = useState(0);
+  const [newOptions, setNewOptions] = useState(columnKeys);
 
   const { filterByNumericValues, setFilterByNumericValues } = useContext(StarWarsContext);
 
@@ -20,8 +21,10 @@ function StarWarsForm() {
   const addFilter = (newFilter) => {
     console.log({ filterByNumericValues, newFilter });
     // SE ja não houver o filtro cadastrado, vai cadastrar
-    if (filterByNumericValues.length === 0 || !filterByNumericValues
+    if (!filterByNumericValues
       .some((f) => f.column === newFilter.column)) {
+      setNewOptions((oldOptions) => oldOptions.filter((item) => item !== column));
+      setColumn(newOptions[0]);
       return setFilterByNumericValues([...filterByNumericValues, newFilter]);
     }
     console.log('JA EXISTE!');
@@ -41,7 +44,7 @@ function StarWarsForm() {
               value={ column }
               onChange={ (e) => setColumn(e.target.value) }
             >
-              {columnKeys.map((item) => (
+              {newOptions.map((item) => (
                 <option
                   id="options"
                   key={ item }
@@ -90,6 +93,16 @@ function StarWarsForm() {
               FILTRAR
             </button>
           </div>
+          <div className="label-input2">
+            <button
+              id="btn-removeFilter"
+              data-testid="button-remove-filters"
+              type="button"
+              onClick=""
+            >
+              FILTRAR
+            </button>
+          </div>
         </div>
       </form>
       <hr />
@@ -106,7 +119,19 @@ function StarWarsForm() {
 
         - o botao que deleta todos os filtros segue a mesma logica, porem
         nao precisa em de filter, só setar um array vazio
-        */}
+        */
+        }
+        {filterByNumericValues.map((filter, index) => (
+          <div key={ index }>
+            { Object.values(filter) }
+            <button
+              type="button"
+              onClick={ (e) => e.target.parentNode.remove() }
+            >
+              x
+            </button>
+          </div>
+        )) }
       </div>
     </div>
 

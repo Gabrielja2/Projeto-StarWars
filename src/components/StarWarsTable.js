@@ -18,6 +18,7 @@ function StarWarsTable() {
     return arrayParam.filter((planet) => {
       // 'maior que', 'menor que', 'igual a'
       if (comparison === 'maior que') {
+        //  precisa transformar em number poiś o valor recebido é uma string
         return Number(planet[column]) > Number(value);
       }
       if (comparison === 'menor que') {
