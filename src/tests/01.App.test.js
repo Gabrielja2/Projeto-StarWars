@@ -17,28 +17,23 @@ describe('1 - Testando os componentes do App', () => {
     cleanup();
   });
 
-   test('1.1 - Verificando componentes que possuem data-testid', async () => {
+   test('1.1 - Verificando os componentes que possuem data-testid', async () => {
 
     const searchNames = screen.getByTestId('name-filter');
-    expect(searchNames).toBeInTheDocument();
-
     const coluna = screen.getByTestId('column-filter');
-    expect(coluna).toBeInTheDocument();
-
     const operador =screen.getByTestId('comparison-filter')
-    expect(operador).toBeInTheDocument();
-
     const valor = screen.getByTestId('value-filter')
-    expect(valor).toBeInTheDocument()
-
     const filtrar = screen.getByTestId('button-filter')
-    expect(filtrar).toBeInTheDocument()
-
     const removerFiltros = screen.getByTestId('button-remove-filters')
-    expect(removerFiltros).toBeInTheDocument()
-    
     const tabela = await screen.findByRole('table')
-    expect(tabela).toBeInTheDocument()
+    
+    expect(searchNames).toBeInTheDocument();
+    expect(coluna).toBeInTheDocument();
+    expect(operador).toBeInTheDocument();
+    expect(valor).toBeInTheDocument()
+    expect(filtrar).toBeInTheDocument()
+    expect(removerFiltros).toBeInTheDocument()
+    expect(tabela).toBeInTheDocument()    
   });
 
   test('1.2 - Testando o input search for names', async () => {
@@ -90,5 +85,5 @@ describe('1 - Testando os componentes do App', () => {
     userEvent.click(filtrar);
     expect(screen.getByText('rotation_period igual a 023')).toBeInTheDocument()
     expect(await screen.findByText(/hoth/i)).toBeInTheDocument();
-  }); 
+  });
 });
