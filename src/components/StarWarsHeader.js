@@ -4,7 +4,7 @@ import './StarWarsHeader.css';
 
 function StarWarsHeader() {
   const { filterName, setFilterName } = useContext(StarWarsContext);
-
+  console.log(filterName.name);
   return (
     <header>
       <div className="header">

@@ -14,6 +14,7 @@ function StarWarsForm() {
   const [comparison, setComparison] = useState(comparisonKeysValue[0]);
   const [value, setValue] = useState(0);
   const [newOptions, setNewOptions] = useState(columnKeys);
+  const [options, setOptions] = useState(columnKeys);
 
   const { filterByNumericValues, setFilterByNumericValues } = useContext(StarWarsContext);
 
@@ -21,14 +22,35 @@ function StarWarsForm() {
   const addFilter = (newFilter) => {
     // console.log('add', { filterByNumericValues });
     // SE ja não houver o filtro cadastrado, vai cadastrar
-    if (!filterByNumericValues
-      .some((f) => f.column === newFilter.column)) {
+    const hasFilter = filterByNumericValues.some((f) => f.column === newFilter.column);
+    if (!hasFilter) {
+      // seta as novas opções, filtrando a que foi escolhida agora
       setNewOptions((old) => old.filter((item) => item !== column));
-      setColumn(newOptions[0]);
+
+      const newOpt = newOptions.filter((item) => item !== column);
+      setColumn(newOpt[0]);
+
       // console.log('col', column);
       return setFilterByNumericValues([...filterByNumericValues, newFilter]);
     }
     console.log('JA EXISTE!');
+  };
+
+  const removeFilter = ({ target: { name } }) => {
+    // const delOptions = [...options, name];
+    // console.log({ delOptions });
+    // setOptions(delOptions);
+    setColumn(newOptions[0]);
+    setFilterByNumericValues((oldList) => oldList.filter((e) => e.column !== name));
+    const filteredOptions = [...newOptions, name];
+    setNewOptions(filteredOptions);
+  };
+
+  const resetFilters = () => {
+    setFilterByNumericValues([]);
+    // setOptions(filterByNumericValues);
+    setColumn('population');
+    setNewOptions(options);
   };
 
   return (
@@ -98,7 +120,7 @@ function StarWarsForm() {
               id="btn-removeFilter"
               data-testid="button-remove-filters"
               type="button"
-              // onClick={ () => setRemoveFilters() }
+              onClick={ resetFilters }
             >
               REMOVER FILTROS
             </button>
@@ -122,11 +144,16 @@ function StarWarsForm() {
         */
         }
         {filterByNumericValues.map((filter, index) => (
-          <div className="filtersActive" key={ index }>
+          <div
+            className="filtersActive"
+            key={ index }
+            data-testid="filter"
+          >
             <p>{ `${filter.column} ${filter.comparison} ${filter.value}` }</p>
             <button
               type="button"
-              onClick={ () => removeFilters({ column, comparison, value }) }
+              onClick={ removeFilter }
+              name={ filter.column }
             >
               x
             </button>

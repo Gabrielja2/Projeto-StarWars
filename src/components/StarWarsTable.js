@@ -36,7 +36,6 @@ function StarWarsTable() {
     filterByNumericValues.forEach((filter) => {
       planetsFiltered = filterByNumberWithComparison(filter, planetsFiltered);
     });
-
     return planetsFiltered;
   };
 
