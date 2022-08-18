@@ -15,7 +15,7 @@ function StarWarsForm() {
   const [value, setValue] = useState(0);
   const [newOptions, setNewOptions] = useState(columnKeys);
   const [options, setOptions] = useState(columnKeys);
-
+  console.log(setOptions);
   const { filterByNumericValues, setFilterByNumericValues } = useContext(StarWarsContext);
 
   // filterType = { column, comparison, value }
