@@ -3,9 +3,9 @@
 
 <strong>👨‍💻 O que foi desenvolvido</strong><br />
     Aqui você vai encontrar os detalhes de como foi estruturado este projeto e instruções para rodar.<br />
-    Você vai desenvolver uma lista com filtros de planetas do universo de Star Wars usando Context API e Hooks para controlar os estados globais.
+    Foi desenvolvido uma lista com filtros de planetas do universo de Star Wars usando Context API e Hooks para controlar os estados globais.
 
-:warning:**IMPORTANTE**: O modelo serve apenas para fins de ilustração. Para desenvolver o projeto, é mandatório que você siga os requisitos apontados no Readme.    
+:warning:**IMPORTANTE**: O modelo serve apenas para fins de ilustração.
 <br />
 
 # Orientações
