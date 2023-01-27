@@ -25,33 +25,6 @@
 # Orientações
 
 <details>
-  <summary><strong>:whale: Rodando no Docker vs Localmente</strong></summary><br />
-  
-  ## 👉 Com Docker
- 
-  > Rode o serviço `node` com o comando `docker-compose up -d`.
-  - Esse serviço irá inicializar um container chamado `talker_manager`.
-  - A partir daqui você pode rodar o container via CLI ou abri-lo no VS Code.
-
-  > Use o comando `docker exec -it talker_manager bash`.
-  - Ele te dará acesso ao terminal interativo do container criado pelo compose, que está rodando em segundo plano.
-
-  > Instale as dependências [**Caso existam**] com `npm install`
-
-  > Execute a aplicação com `npm start` ou `npm run dev`
-
-  ---
-  
-  ## 👉 Sem Docker
-  
-  > Instale as dependências [**Caso existam**] com `npm install`
-
-  :eyes: **De olho nas dicas:** 
-  1. Para rodar o projeto desta forma, **obrigatoriamente** você deve ter o `node` instalado em seu computador.
-
-</details>
-
-<details>
 <summary><strong>Como ter acesso ao projeto e instalar as dependências</strong></summary><br />
 
     1. Entre na pasta do repositório que você acabou de clonar ou fazer o download do arquivo zip:
