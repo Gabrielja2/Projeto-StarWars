@@ -11,13 +11,13 @@
 <details>
   <summary><strong>:memo: Habilidades</strong></summary><br />
 
-  Nesse projeto você irá:
+  Nesse projeto foi utilizado:
 
-  * Utilizar a _Context API_ do **React** para gerenciar estado.
-  * Utilizar o _React Hook useState_;
-  * Utilizar o _React Hook useContext_;
-  * Utilizar o _React Hook useEffect_;
-  * Criar _React Hooks_ customizados.
+  * _Context API_ do **React** para gerenciar estado.
+  * _React Hook useState_;
+  * _React Hook useContext_;
+  * _React Hook useEffect_;
+  * _React Hooks_ customizados.
   * Escrever testes para garantir que sua aplicação possua uma boa cobertura de testes.
 
 </details>
